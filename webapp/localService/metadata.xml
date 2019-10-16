@@ -1,0 +1,85 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZINT_SALES_MAGENTO_SERVICE_SRV" xml:lang="pl" sap:schema-version="1">
+            <EntityType Name="Sale" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="VbelnCreated" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Dokument SD" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Zzsklep" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sklep" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zleceniodawca" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Zlecenio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DataDok" Type="Edm.DateTime" Precision="7" sap:label="DataZlec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DataOdbZam" Type="Edm.DateTime" Precision="7" sap:label="DataOd" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WarPlat" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="WarPl" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vsbed" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Warunki wysyłki" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Faktura" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Dokument SD" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Komentarz" Type="Edm.String" Nullable="false" MaxLength="460" sap:label="Komentarz" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Error" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Email wysłany" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fiori" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Zlecenie Fiori" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Objnr" Type="Edm.String" Nullable="false" MaxLength="22" sap:label="Nr obiektu-nag." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="PositionSet" Relationship="ZINT_SALES_MAGENTO_SERVICE_SRV.SaleToPos" FromRole="FromRole_SaleToPos" ToRole="ToRole_SaleToPos"/>
+            </EntityType>
+            <EntityType Name="Position" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Lp"/>
+                </Key>
+                <Property Name="Fiori" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Fiori" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lp" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Pozycja" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Dok. sprzedaży" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Pozycja" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Uepos" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Poz. nadrzędna" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pstyv" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Typ pozycji" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzsklep" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sklep" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Materiał" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Oznaczenie" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ilosc" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="Meins" sap:label="Ilość" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Podst.JM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Cena" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:label="Cena" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WartoscNetto" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="Wartość netto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WartoscBrutto" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Wartość brutto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vat" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="3" sap:label="Stawka VAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Waluta" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Waluta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Ebeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Dok.zaopatrz." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ebelp" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Pozycja" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Nr zlec." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mblnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Dokument mat." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dostawa" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Dokument SD" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsManyDeliveries" Type="Edm.Boolean" Nullable="false" sap:label="Czy wiele dostaw?" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lfdat" Type="Edm.DateTime" Precision="7" sap:label="Data dostawy" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tknum" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Nr transportu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Sale" Relationship="ZINT_SALES_MAGENTO_SERVICE_SRV.SaleToPos" FromRole="ToRole_SaleToPos" ToRole="FromRole_SaleToPos"/>
+            </EntityType>
+            <Association Name="SaleToPos" sap:content-version="1">
+                <End Type="ZINT_SALES_MAGENTO_SERVICE_SRV.Sale" Multiplicity="1" Role="FromRole_SaleToPos"/>
+                <End Type="ZINT_SALES_MAGENTO_SERVICE_SRV.Position" Multiplicity="*" Role="ToRole_SaleToPos"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SaleToPos">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SaleToPos">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZINT_SALES_MAGENTO_SERVICE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SaleSet" EntityType="ZINT_SALES_MAGENTO_SERVICE_SRV.Sale" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="PositionSet" EntityType="ZINT_SALES_MAGENTO_SERVICE_SRV.Position" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="SaleToPosSet" Association="ZINT_SALES_MAGENTO_SERVICE_SRV.SaleToPos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SaleSet" Role="FromRole_SaleToPos"/>
+                    <End EntitySet="PositionSet" Role="ToRole_SaleToPos"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZINT_SALES_MAGENTO_SERVICE_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZINT_SALES_MAGENTO_SERVICE_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

@@ -1,0 +1,156 @@
+<mvc:View
+	controllerName="report.report.controller.Object"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false"
+		busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+
+		<semantic:titleHeading>
+			<Title text="{Id}" />
+		</semantic:titleHeading>
+
+		<semantic:headerContent>
+			<ObjectNumber
+			/>
+		</semantic:headerContent>
+		
+			<semantic:content>
+			<Table
+				id="table2"
+				width="auto"
+				items="{objectView>/items/results}"
+				noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{objectView>/delay}"
+				growing="true"
+				growingScrollToLoad="true">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="Pozycje"/>
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="{i18n>tableNameColumnTitle2}" id="nameColumnTitle1"/>
+					</Column>
+					<Column id="nameColumn1">
+						<Text text="{i18n>tableNameColumnTitle3}" id="nameColumnTitle2"/>
+					</Column>
+					<Column id="nameColumn3">
+						<Text text="{i18n>tableNameColumnTitle5}" id="nameColumnTitle4"/>
+					</Column>
+					<Column id="nameColumn4">
+						<Text text="{i18n>tableNameColumnTitle6}" id="nameColumnTitle5"/>
+					</Column>
+					<Column id="nameColumn5">
+						<Text text="{i18n>tableNameColumnTitle7}" id="nameColumnTitle6"/>
+					</Column>
+					<Column id="nameColumn6">
+						<Text text="{i18n>tableNameColumnTitle8}" id="nameColumnTitle7"/>
+					</Column>
+					<Column id="nameColumn7">
+						<Text text="{i18n>tableNameColumnTitle9}" id="nameColumnTitle8"/>
+					</Column>
+					<Column id="nameColumn8">
+						<Text text="{i18n>tableNameColumnTitle10}" id="nameColumnTitle9"/>
+					</Column>
+					<Column id="nameColumn2">
+						<Text text="{i18n>tableNameColumnTitle4}" id="nameColumnTitle3"/>
+					</Column>
+					<Column id="nameColumn9">
+						<Text text="{i18n>tableNameColumnTitle11}" id="nameColumnTitle10"/>
+					</Column>
+					<Column id="nameColumn11">
+						<Text text="{i18n>tableNameColumnTitle13}" id="nameColumnTitle12"/>
+					</Column>
+					<Column id="nameColumn10">
+						<Text text="{i18n>tableNameColumnTitle12}" id="nameColumnTitle11"/>
+					</Column>
+					<Column id="nameColumn12">
+						<Text text="{i18n>tableNameColumnTitle14}" id="nameColumnTitle13"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Vbeln}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Posnr}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Pstyv}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Matnr}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Maktx}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Ilosc}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Meins}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Cena}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>WartoscNetto}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>WartoscBrutto}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Waluta}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Vat}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier
+								title="{objectView>Ebeln}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id ="shareTile" title="{objectView>/saveAsTileTitle}" />
+		</semantic:saveAsTileAction>
+
+	</semantic:SemanticPage>
+
+</mvc:View>
